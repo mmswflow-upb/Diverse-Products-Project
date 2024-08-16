@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="device-width, initial-scale=1">
+        <title>DiverseProducts.com-Data Base Logs</title>
+        <link rel = "stylesheet" href ="{{ url_for('static', filename = 'css/dpStyle.css') }}">
+        
+        <header name = "pageTitle" align = "center">
+            
+            <h1>DiverseProducts.com</h1>
+            <h3>Data Base Access Logs</h3>
+            
+        </header>
+
+        <header align = "left">
+
+            <form method = "post" action = "#">
+
+                <input name = "marketplace" type = "submit" value = "Marketplace">
+                <input name = "pdb" type = "submit" value="Products Data Base"><br><br>
+                <input name = "logOut" type = "submit" value = "Log Out">
+                <input name = "deleteAccount" type = "submit" value = "Delete Account">
+            </form>
+        </header>
+       
+    </head>
+    
+    <body>
+
+        <h3>
+            {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}<br>
+
+            View all the operations on the data base.
+        </h3>
+
+        <table border = "2">
+
+                <thead>
+                    <h2>
+                        {% with messages = get_flashed_messages(category_filter=["warning","info","error"]) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}<br>
+
+                    </h2>
+                    <th scope = "col">Command</th>
+                    <th scope = "col">Affected Product</th>
+                    <th scope = "col">Date & Time</th>
+                </thead>
+
+                <tbody>
+                    {% for log in logs: %}
+                        <tr>
+                            {% for data in log %}
+                                {% if log.index(data) == 0 %}
+                                    <td><input type = "text" value = '{{data}}' class = "specialInput" readonly name = "command_{{logs.index(log)}}"></td>
+                                {%elif log.index(data) == 1 %}
+                                    <td><input type = "text" value = '{{data}}' class = "specialInput" readonly name = "product_{{logs.index(log)}}"></td>
+                                {% else %}
+                                    <td><input type = "text" value = '{{data}}' class = "specialInput" readonly></td>
+                                  
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            <h2>Available Operations:</h2>
+            <form action = "#" method = "post">
+
+                <label>Filters:</label>
+                <select name = "filterOption" selected>
+                    <option>View All Logs</option>
+                    <option {{selectedProduct}}>Specific Product</option>
+                    <option {{selectedCommand}}>Specific Command</option>
+                </select>
+                <br><br>
+
+                <input name = "searchLog" placeholder="Product or Command or none" type="text">
+                <input name = "search" value = "Search" type = "submit">
+                <input type = "submit" name = "clearLogs" value = "Clear Logs" align = "left">
+
+            </form>
+    </body>
+    
+    <footer>
+
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <h3 align = "center"></h3>
+        <h4 align = "center"></h4>
+
+    </footer>
+</html>

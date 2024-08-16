@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="device-width, initial-scale=1">
+        <title>DiverseProducts.com-Stock Manager</title>
+        <link rel = "stylesheet" href ="{{ url_for('static', filename = 'css/dpStyle.css') }}">
+        
+        <header align = "center">
+            
+            <h1>DiverseProducts.com</h1>
+            <h3>Products Data Base</h3>
+            
+        </header>
+        <header name = "links" align = "left">
+
+          <form method = "post" action = "#">
+
+            <input name = "marketplace" type = "submit" value = "Marketplace">
+            <input name = "dbl" type = "submit" value="Data Base Logs"><br><br>
+            <input name = "logOut" type = "submit" value = "Log Out">
+            <input name = "deleteAccount" type = "submit" value = "Delete Account">
+          </form>
+            
+        </header>
+    </head>
+    
+    <body> 
+
+        <h3>
+            {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <br>
+            Access and Edit Data Of Your Products Using This Webpage.<br><br>
+        </h3>
+
+        <form method = "post" action = "#"  enctype="multipart/form-data">
+
+            <h2>
+                {% with messages = get_flashed_messages(category_filter=["warning","info","error"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </h2>
+
+            <table border = "1">
+
+                <thead>
+                    <th>
+                        <input type="submit" align = "left" value = "<" name = "back">
+                        <input class = "specialInput" type = "text" readonly align = "center" value = "Page: {{page}}">
+                        <input type="submit" align = "right" value = ">" name = "next">
+                    </th>
+                    <th align = "center">Searched Product's Data</th>
+                    <th align = "center">Insert New Data</th>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row"  align = "left">Product NO:</th>
+                        <td align = "center">{{prod_no}}</td>
+                        <td align = "center"><input class = "specialInput" readonly type = "text" name = "productNO" value = {{prod_no}}></td>
+                        
+                    </tr>
+                            
+                    <tr>
+                        <th scope = "row" align="left">Product Name:</td>
+                        <td align = "center">{{prod_name}}</td>
+                        <td><input type = "text" name = "productName" value = "{{prod_name}}" max = "50"></td><br>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"  align = "left">Product Cost [RON]:</th>
+                        <td align = "center">{{prod_price}}</td>
+                        <td><input type = "number" name = "productPrice" value = "{{prod_price}}" step = "0.01" min = "0" max = "99999999999"></td><br>
+                    </tr>
+                    <tr>
+                        <th scope="row" align = "left">In Stock:</th>    
+                        <td align = "center">{{prod_inStock}}</td>
+                        <td><input type = "number" name = "productStock" value = '{{prod_inStock}}' step = "1" min = "0" max = "99999999999"></td><br>
+                    </tr>
+                    <tr>
+                        <th scope="row" align = "left">Product Image:</th>  
+                        <td align = "center"><img width = "30%" height="30%" src = "static/images/{{prod_image}} "></td>  
+                        <td><input type = "file"  name = "productImage"  src = "static/images/{{prod_image}}" accept = ".jpg, .jpeg, .png"></td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Available Operations:</h2>
+            <br>
+            <label>Search for a product:</label>
+            <input name = "searchProduct" placeholder="any product name" type="text">
+            <input name = "search" value = "Search" type = "submit"><br><br>
+
+            <input type = "submit" name = "updateProduct" value = "Update Product" align = "right">
+            <input type = "submit" name = "addProduct"  value ="Add Product" align = "center">
+            <input type = "submit" name = "deleteProduct" value = "Delete Product" align = "left">
+            <input type = "submit" name = "deleteAll" value = "DELETE ALL" align = "right">
+        </form>
+    </body>
+    
+    <footer>
+        
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h3 align = "center"></h3>
+        <h4 align = "center"></h4>
+
+    </footer>
+</html>

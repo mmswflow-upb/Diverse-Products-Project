@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="device-width, initial-scale=1">
+        <link rel = "stylesheet" href ="{{ url_for('static', filename = 'css/dpStyle.css') }}">
+        <title>DiverseProducts.com-Marketplace</title>
+
+       
+        <header name = "pageTitle" align = "center">
+            
+            <h1>DiverseProducts.com</h1>
+            <h3>Marketplace</h3>
+            
+        </header>
+
+        <header align = "left">
+
+            <form method = "post" action = "#">
+
+                <input name = "dbl" type = "submit" value = "Data Base Logs"><br><br>
+                <input name = "pdb" type = "submit" value="Products Data Base"><br><br>
+                <input name = "logOut" type = "submit" value = "Log Out">
+                <input name = "deleteAccount" type = "submit" value = "Delete Account">
+            </form>
+            <h3>
+                {% with messages = get_flashed_messages(category_filter=["message"]) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}<br>
+            </h3>
+        </header>
+       <header align = "center">
+
+            <form method = "post" action = "#">
+                <label>Search a Product:</label>
+                <input type = "text" name = "searchProduct" placeholder="name/address/store">
+                <input type = "submit" name = "searchButton" value = "Search"><br><br>
+                <label>Search Filters:</label>
+                
+                <select name = "filterOption">
+                    <option>All</option>
+                    <option {{productSelect}}>Product Name</option>
+                    <option {{creatorSelect}}>Store Name</option>
+                    <option {{locationSelect}}>Store Location</option>
+                </select>
+            </form><br>
+            {% with messages = get_flashed_messages(category_filter=["error","info","warning"]) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}<br>
+       </header>
+    </head>
+    
+    <body align = "center">
+
+        <br><br>
+        <hr>
+        {% for userTable in users %}
+            {% for product in userTable[0] %}
+
+                <img src = "static/images/{{product[2]}} " height = "15%" width = "10%" alt = "image not loaded">
+                <ul>
+                    <li>Product Name: {{product[0]}}</li>
+                    <li>Store/User: {{userTable[1][0]}}</li>
+                    <li>Location: {{userTable[1][1]}}</li>
+                    <li>Price: {{product[1]}}</li>
+                </ul>
+                <hr>
+            {% endfor %}   
+        {% endfor %}
+
+    </body>
+    
+    <footer>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <h3 align = "center">All Products On This Platform Are Contributions Made By This Platform's Associates.</h3>
+        <h3 align = "center">There is no copyright imposed on this platform. Everything here is fictional.</h3>
+
+    </footer>
+</html>

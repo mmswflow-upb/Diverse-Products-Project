@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name = "viewport" content = "device-width,initial-scale=1">
+        <link rel = "stylesheet" href ="{{ url_for('static', filename = 'css/dpStyle.css') }}">
+        <title>DiverseProducts.com</title>
+
+        <header>
+            <h1 align = "center">DiverseProducts.com</h1>
+        </header>
+    </head>
+
+    <body align = "center">
+
+        <h2>Welcome To The Associates Sign Up Page.</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            
+                {% for message in messages %}
+
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method = "post" action = "#">
+
+            <label>Associate Username:</label>
+            <input name = "newUsername" type = "text" required minlength="5" maxlength="50">
+            <br><br>
+            <label>Associate Password:</label>
+            <input type = "password" required name = "newPassword" minlength="4" maxlength="25"><br><br>
+            <label>Confirm Password:</label>
+            <input type = "password" required name = "confirmPassword"  minlength="4" maxlength="25"><br><br>
+            <label>Email:</label>
+            <input type = "email" required name = "email" minlength="1" placeholder="example@exmp.com"><br><br>
+            <label>Store Address:</label>
+            <input required type = "text" name = "address"><br><br>
+            <label>Create Account: </label>
+            <input type = "submit" value = "Submit" name = "submit">
+        </form>
+        <form method = "post" action = "#">
+            <br>
+            <label>Go back to Login Page:</label>
+            <input type = "submit" value = "Log In" name = "logIn">
+        </form>
+    </body>
+    <footer>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h3 align = "center"></h3>
+        <h4 align = "center"></h4>
+
+    </footer>
+</html>
