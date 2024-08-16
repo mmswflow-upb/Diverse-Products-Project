@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel = "stylesheet" href ="{{ url_for('static', filename = 'css/dpStyle.css') }}">
+        
+       
+        <meta charset="UTF-8">
+        <meta name = "viewport" content = "device-width,initial-scale=1">
+
+        <title>DiverseProducts.com Associates Access</title>
+
+        <header>
+            <h1 align = "center">DiverseProducts.com</h1>
+        </header>
+    </head>
+
+    <body align = "center">
+
+        <h2>Welcome to the associates' login page.</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            
+                {% for message in messages %}
+
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method = "post" action = "#">
+
+            <label>Associate Username:</label>
+            <input name = "associateUsername" type = "text" required>
+            <br><br>
+            <label>Associate Password:</label>
+            <input type = "password" required name = "associatePassword"><br><br>
+            <label>Remember me:</label><input type = "checkbox" name = "rememberMe">
+            <input type = "submit" value = "Log In">
+        </form>
+        <form method = "post" action = "#">
+            <br>
+            <label>OR Create A New Account: </label>
+            <input type = "submit" value = "Sign Up" name = "signUp">
+        </form>
+    </body>
+    <footer>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h3 align = "center"></h3>
+        <h4 align = "center"></h4>
+
+    </footer>
+</html>
