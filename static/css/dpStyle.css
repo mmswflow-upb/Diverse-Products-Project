@@ -1,0 +1,15 @@
+body {background-color: rgb(40, 40, 43);}
+h1 {color:rgb(255, 255, 255);}
+h2 {color:rgb(255, 255, 255);}
+h3 {color:rgb(250, 77, 4);}
+h4 {color:rgb(255, 255, 255);}
+p {color:rgb(250, 77, 4);  border-color:rgb(12, 12, 12); }
+td {color:rgb(255, 255, 255);}
+th {color:rgb(255, 255, 255);}
+label {color:rgb(255, 255, 255); }
+li {color:rgb(255, 255, 255);}
+.specialInput {background: none; border: none; color:rgb(255, 255, 255); }
+a {color:rgb(4, 218, 82);}
+ul {list-style-position: inside;}
+div {border: 20px;}
+.searchResults {margin: 10px 0px 10px 0px; border-bottom-style: inset; border-bottom-color: rgb(250, 77, 4);}
