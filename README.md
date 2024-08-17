@@ -26,7 +26,7 @@ Before setting up the project, ensure you have the following installed on your L
 First, clone the repository from GitHub to your local machine:
 
 ```bash
-git clone https://github.com/mmswflow-upb/DiverseProducts-OS1-Project-No.1
+git clone https://github.com/mmswflow-upb/DiverseProducts-OS1-Project-No.1.git
 cd upbnotes
 ```
 ### 2. Install Python Dependencies
