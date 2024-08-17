@@ -1,9 +1,13 @@
 # DiverseProducts Web Application
 
+## Description
+
 It is a simple web application in which you have to create an account to be able to maange your own
 inventory, by adding deleting updating or searching through your products table. You can upload images
 of your products in the jpg or png format. You also get access to a marketplace where you can check the 
 products of other users and their prices.
+
+This project uses flask, html, a bit of css and a locally hosted MariaDB database.
 
 ## Prerequisites
 
