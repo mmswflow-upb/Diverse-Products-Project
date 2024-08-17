@@ -7,7 +7,8 @@ inventory, by adding deleting updating or searching through your products table.
 of your products in the jpg or png format. You also get access to a marketplace where you can check the 
 products of other users and their prices.
 
-This project uses flask, html, a bit of css and a locally hosted MariaDB database.
+This project uses flask, html, a bit of css and a locally hosted MariaDB database and it was an assignment given
+in the operating systems I course.
 
 ## Prerequisites
 
