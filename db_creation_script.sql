@@ -1,1 +1,14 @@
+CREATE DATABASE DiverseProductsDB;
+USE DiverseProductsDB;
 
+CREATE TABLE associates (
+    username VARCHAR(50),
+    password VARCHAR(25),
+    email VARCHAR(60),
+    address VARCHAR(200)
+);
+
+CREATE USER 'USERNAME'@'127.0.0.1' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON DiverseProductsDB.* TO 'USERNAME'@'127.0.0.1';
+FLUSH PRIVILEGES;
+EXIT;
